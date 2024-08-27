@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <!-- 模型版本 -->
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- 父项目配置，继承 Spring Boot 的父项目 -->
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.1.12</version>
+    <relativePath/> <!-- 从仓库中查找父项目 -->
+  </parent>
+
+  <!-- 项目基础信息 -->
+  <groupId>cn.tangrl</groupId> <!-- 项目的组 ID -->
+  <artifactId>ut</artifactId> <!-- 项目的 artifact ID -->
+  <version>0.0.1-SNAPSHOT</version> <!-- 项目的版本号 -->
+  <packaging>jar</packaging> <!-- 打包类型 -->
+  <name>demo-ut</name> <!-- 项目名称 -->
+  <description>demo-ut</description> <!-- 项目描述 -->
+
+  <!-- 项目属性配置 -->
+  <properties>
+    <java.version>21</java.version> <!-- 指定使用的 Java 版本 -->
+  </properties>
+
+  <!-- 项目依赖配置 -->
+  <dependencies>
+    <!-- Spring Boot Starter Web: 提供构建 Web 应用所需的基本依赖 -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <!-- Spring Boot Starter Validation: 提供 Bean Validation 支持 -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-validation</artifactId>
+    </dependency>
+
+    <!-- Spring Boot Starter Data JPA: 提供 JPA 持久化支持 -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
+
+    <!-- MySQL Connector: MySQL 数据库驱动 -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.33</version>
+    </dependency>
+
+    <!-- H2 Database: 测试时使用的内存数据库 -->
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- Spring Boot Starter Test: 包含 JUnit 5 和 Mockito，提供测试支持 -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+      <!-- 排除 JUnit 4 的支持 (Vintage 引擎) -->
+      <exclusions>
+        <exclusion>
+          <groupId>org.junit.vintage</groupId>
+          <artifactId>junit-vintage-engine</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <!-- Lombok: 用于减少样板代码 -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <optional>true</optional>
+    </dependency>
+  </dependencies>
+
+  <!-- 构建配置 -->
+  <build>
+    <plugins>
+      <!-- Spring Boot Maven 插件: 提供 Spring Boot 应用打包支持 -->
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+
+      <!-- Maven Surefire 插件: 用于运行单元测试 -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.3.1</version>
+      </plugin>
+    </plugins>
+  </build>
+</project>
